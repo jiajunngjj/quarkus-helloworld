@@ -9,12 +9,9 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 @Path("/")
 public class HelloWorld {
 
-    @ConfigProperty(name = "TARGET", defaultValue="World")
-    String target;
-
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String greet() {
-        return "Hello " + target + "!";
+        return "Hello World!";
     }
 }

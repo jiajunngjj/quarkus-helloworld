@@ -10,6 +10,41 @@ You can run your application in dev mode that enables live coding using:
 ./mvnw quarkus:dev
 ```
 
+### Live coding
+After running Quarkus in dev mode, you will see:
+```
+2020-05-06 09:50:44,575 INFO  [io.qua.dep.QuarkusAugmentor] (XNIO-1 task-1) Beginning quarkus augmentation
+2020-05-06 09:50:44,655 INFO  [io.qua.dep.QuarkusAugmentor] (XNIO-1 task-1) Quarkus augmentation completed in 80ms
+2020-05-06 09:50:44,667 INFO  [io.quarkus] (XNIO-1 task-1) Quarkus 0.13.3 started in 0.092s. Listening on: http://[::]:8080
+2020-05-06 09:50:44,667 INFO  [io.quarkus] (XNIO-1 task-1) Installed features: [cdi, resteasy]
+2020-05-06 09:50:44,667 INFO  [io.qua.dev] (XNIO-1 task-1) Hot replace total time: 0.141s 
+```
+
+Access the endpoint via web browser or command line:
+```
+curl http://localhost:8080/
+```
+
+You will be able to see:
+```
+Hello World!
+```
+
+Don't stop the runtime and change the *return* code:
+```
+return "Live coding with Quarkus!"
+```
+
+Access the endpoint again:
+```
+curl http://localhost:8080/
+```
+
+You will see:
+```
+Live coding with Quarkus!
+```
+
 ## Packaging and running the application
 
 The application can be packaged using `./mvnw package`.
@@ -27,3 +62,4 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 You can then execute your native executable with: `./target/quarkus-helloworld-1.0.0-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image-guide.
+
