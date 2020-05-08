@@ -63,3 +63,14 @@ You can then execute your native executable with: `./target/quarkus-helloworld-1
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image-guide.
 
+## Deploy on OpenShift (s2i)
+
+Create a new project on OpenShift:
+```
+oc new-project quarkus-helloworld
+```
+
+Create an Application Using a Remote Git Repository:
+``
+oc new-app registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift~https://github.com/jiajunngjj/quarkus-helloworld.git --name=quarkus-helloworld
+```
